@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $modelname = $_POST['modelname'];
         $seats = $_POST['capacity'];
         $price = $_POST['rent'];
-        $modelnumber = $_POST['modelnumber'];
+        $modelnumber= $_POST['modelnumber'];
         $checksql = "Select * from listedcars where modelno='$modelnumber'";
         $result = mysqli_query($conn, $checksql);
         $numRows = mysqli_num_rows($result);

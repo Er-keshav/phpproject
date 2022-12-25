@@ -22,16 +22,19 @@
     ?>
 
     <div class="container mb-5">
-        <h1 class="text-center mt-5 font-weight-light font-bold">My Listed Cars</h1>
+        <h1 class="text-center mt-5 font-weight-light font-bold">My Listed Cars
+        </h1>
 
         <div class="card">
             <div class="container mt-4 ml-3 ">
                 <button type="button" class="btn btn-primary px-auto " data-toggle="modal" data-target="#AddListing">
-                    ADD NEW CARS TO LIST </button>
+                    ADD NEW CARS TO LIST
+                </button>
                 <?php include 'utilities/addnewmodal.php'; ?>
             </div>
             <div class="card-body">
                 <?php include 'utilities/editmodal.php'; ?>
+
                 <?php
                 $id = $_SESSION['user_id'];
                 $sql = "SELECT * FROM `listedcars` WHERE seller_id=$id ORDER BY srno DESC";
@@ -52,7 +55,6 @@
                     $index = 1;
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-         ??
                     <tbody>
                         <tr>
                             <td> <?php echo $row['srno']; ?> </td>
@@ -68,14 +70,13 @@
                     </tbody>
                     <?php
                         $index++;
-                    }?>
+                    }
+
+                    ?>
                 </table>
             </div>
         </div>
-
     </div>
-
-
 
     <?php
     include 'utilities/footer.php';
@@ -104,6 +105,8 @@
                 var data = $tr.children("td").map(function () {
                     return $(this).text();
                 }).get();
+
+                // console.log(data);
 
                 $('#srno').val(data[0]?.trim());
                 $('#insertdata').val(data[0].trim());
