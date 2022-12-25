@@ -24,7 +24,7 @@
 
         <h2 class="text-center font-weight-light">Log-In to rent a Car today!</h2>
         <div class="d-flex justify-content-center mt-5">
-            <form class="form-signin" action="/project_php/utilities/handlesignin.php" method="post">
+            <form class="form-signin" action="/utilities/handlesignin.php" method="post">
 
                 <div class="form-label-group">
                     <input type="email" id="inputEmail" style="width: 23rem;height: 3rem;" class="form-control"

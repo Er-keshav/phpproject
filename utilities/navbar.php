@@ -2,7 +2,7 @@
 session_start();
  echo '<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
  
-    <a class="navbar-brand mb-0 text-success mx-3" href="/project_php/book_a_car.php"> BooknDrive  </a>
+    <a class="navbar-brand mb-0 text-success mx-3" href="/book_a_car.php"> BooknDrive  </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,8 @@ session_start();
             }
             else{
                 echo '
-                <a class="btn btn-outline-success my-2 my-sm-0 mx-3" type="login" href="/project_php/login.php">LogIn</a>
-            <a class="btn btn-success my-2 my-sm-0 mx-2" type="signup" href="/project_php/customersignup.php">SignUp</a>';
+                <a class="btn btn-outline-success my-2 my-sm-0 mx-3" type="login" href="/login.php">LogIn</a>
+            <a class="btn btn-success my-2 my-sm-0 mx-2" type="signup" href="/customersignup.php">SignUp</a>';
             }
             echo '
         </div>

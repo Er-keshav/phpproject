@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['type'] = $row['type'];
             $_SESSION['useremail'] = $row['name'];
             $_SESSION['user_id'] = $row['srno'];
-        header("Location: /project_php/book_a_car.php?signupsuccess=true");
+        header("Location: /book_a_car.php?signupsuccess=true");
         exit();
         }
         else{
@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
      $showError = "Email Id Not Found. Please Sign-up First ";
     }
-    header("Location: /project_php/login.php?signupsuccess=false&error=$showError");
+    header("Location: /login.php?signupsuccess=false&error=$showError");
 }
 
 ?>

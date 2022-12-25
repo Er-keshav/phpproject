@@ -1,40 +1,38 @@
 <?php
-$id= $_SESSION['user_id'];
+$id = $_SESSION['user_id'];
 
-   if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //inserting into database
-    if(isset($_POST['adddata']))
-    {  
+    if (isset($_POST['adddata'])) {
         $modelname = $_POST['modelname'];
         $seats = $_POST['capacity'];
-        $price = $_POST['rent']; 
-        $modelnumber= $_POST['modelnumber'];
+        $price = $_POST['rent'];
+        $modelnumber = $_POST['modelnumber'];
         $checksql = "Select * from listedcars where modelno='$modelnumber'";
         $result = mysqli_query($conn, $checksql);
         $numRows = mysqli_num_rows($result);
         echo $numRows;
-        if($numRows<1){
-        $sql = "INSERT INTO `listedcars` (`seller_id`, `modelname`, `modelno`, `capacity`, `rent`, `datetime`) VALUES ('$id', '$modelname', '$modelnumber', '$seats', '$price', current_timestamp())";
-        $result = mysqli_query($conn, $sql);
-        header("Location: /project_php/listed_cars.php?showAlert=false");
+        if ($numRows < 1) {
+            $sql = "INSERT INTO `listedcars` (`seller_id`, `modelname`, `modelno`, `capacity`, `rent`, `datetime`) VALUES ('$id', '$modelname', '$modelnumber', '$seats', '$price', current_timestamp())";
+            $result = mysqli_query($conn, $sql);
+            header("Location: /listed_cars.php?showAlert=false");
         }
     }
-
-    if(isset($_POST['insertdata']))
-    {  
-       $modelname = $_POST['editmodelname'];
-       $modelnumber = $_POST['editmodelnumber'];
-       $seats = $_POST['editcapacity'];
-       $price = $_POST['editrent']; 
-    
-    //   echo $modelname;
-    //   echo $modelnumber;
-    //   echo dkksw;
-    $sql = "UPDATE `listedcars` SET `modelname`='$modelname', `capacity`='$seats', `rent`='$price' WHERE `listedcars`.`modelno`='11111'";
-    $result = mysqli_query($conn, $sql);
-    if($result){
-    header("Location: /project_php/listed_cars.php?edit=true");
-    }
+    if (isset($_POST['editid'])) {
+        $modelname = $_POST['editmodelname'];
+        $modelnumber = $_POST['editmodelnumber'];
+        $seats = $_POST['editcapacity'];
+        $price = $_POST['editrent'];
+        $srno = $_POST['editid'];
+        echo isset($_POST['insertdata']);
+        //   echo $modelname;
+        //   echo $modelnumber;
+        //   echo dkksw;
+        $sql = "UPDATE `listedcars` SET `modelname`='$modelname', `capacity`='$seats', `rent`='$price' WHERE `listedcars`.`srno`='$srno'";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            header("Location: /listed_cars.php?edit=true");
+        }
     }
 }
 
@@ -48,7 +46,7 @@ echo '
                 <h5 class="modal-title" id="AddListingLabel">Add New Listing</h5>
                 </div>
                 <div class="modal-body">
-                <form class="form-signin" action="/project_php/listed_cars.php" method="post">
+                <form class="form-signin" action="/listed_cars.php" method="post">
 
                     <div class="form-label-group mx-4 mt-2">
                         <input type="text" id="modelname" style="width: 23rem;height: 3rem;" class="form-control"
@@ -84,4 +82,4 @@ echo '
         </div>
     </div>
 </div>'
-?>
+    ?>

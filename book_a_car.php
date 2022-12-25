@@ -61,7 +61,7 @@
                         // not logged in
                         else{
                             echo ' 
-                            <a class="btn btn-outline-success p-2 m-3" href="/project_php/login.php" type="submit">BOOK NOW </a>';
+                            <a class="btn btn-outline-success p-2 m-3" href="/login.php" type="submit">BOOK NOW </a>';
                         }
 
                    echo '</ul>

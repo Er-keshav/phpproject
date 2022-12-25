@@ -38,7 +38,7 @@
                   $_SESSION['type'] = $type;
                   $_SESSION['useremail'] = $row['name'];
                   $_SESSION['user_id'] = $row['srno'];
-                header("Location: /project_php/book_a_car.php?signupsuccess=true");
+                header("Location: /book_a_car.php?signupsuccess=true");
                 exit();
             }
         }
@@ -47,10 +47,10 @@
         }
     }
     if($type==1){
-    header("Location: /project_php/customersignup.php?signupsuccess=false&error=$showError");
+    header("Location: /customersignup.php?signupsuccess=false&error=$showError");
     }
     else{
-    header("Location: /project_php/sellersignup.php?signupsuccess=false&error=$showError");
+    header("Location: /sellersignup.php?signupsuccess=false&error=$showError");
     }
 
   }

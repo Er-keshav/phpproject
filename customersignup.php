@@ -26,12 +26,12 @@
         <h2 class="text-center font-weight-light">Sign-Up to get Started!</h2>
 
         <div class="d-flex justify-content-center mt-4 mx-2">
-            <form class="form" style="padding-left: 4rem" action="/project_php/utilities/handlesignup.php" method="post">
+            <form class="form" style="padding-left: 4rem" action="/utilities/handlesignup.php" method="post">
 
                 <div class="btn-group btn-lg btn-light btn-block mb-4 p-0" role="group" style="width: 23rem;"
                     aria-label="Basic example" >
-                    <a type="button" class="btn btn-success p-2" href="/project_php/customersignup.php">User</a>
-                    <a type="button" class="btn btn-outline-success p-2" href="/project_php/sellersignup.php">Rental Agency</a>
+                    <a type="button" class="btn btn-success p-2" href="/customersignup.php">User</a>
+                    <a type="button" class="btn btn-outline-success p-2" href="/sellersignup.php">Rental Agency</a>
                 </div>
 
                 <div class="form-row mb-2">
