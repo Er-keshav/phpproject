@@ -9,7 +9,13 @@ echo '
                 </div>
                 <div class="modal-body">
                 
-                <form class="form-signin" action="/listed_cars.php" method="post">
+                <form class="form-signin" action="/project_php/listed_cars.php" method="post">
+                <input type="hidden" id="srno" name="srno">
+                    <div class="form-label-group mx-4 mt-2">
+                        <input type="text" id="editmodelname" style="width: 23rem;height: 3rem;" class="form-control"
+                            name="editmodelname"  placeholder="Vehicle Model ( AUDI S Class )" required autofocus>
+                        <label for="inputmodel">Vehicle Model</label>
+                    </div>
 
                 <input type="hidden" id="srno" name="srno">
 

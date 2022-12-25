@@ -33,11 +33,17 @@
               $result= mysqli_query($conn, $sql);
               while($row = mysqli_fetch_assoc($result)){
                 echo '
-                  <div class="col-md-4">
-                <form class="px-3 mx-1 mb-5">
+                  <div class="col-md-4">';
+
+                  if(isset($_SESSION['user_id'])){
+                echo '<form class="px-3 mx-1 mb-5" action="/project_php/utilities/handlebooking.php?srno='.$row['srno'].'&userid='.$_SESSION['user_id'] .'" method="post">';
+                  }
+                  else{
+                   echo '<form class="px-3 mx-1 mb-5" action="/project_php/utilities/handlebooking.php">';
+                  }
+                echo '
                     <div class="card md-3" style="width: 22rem;">
                         <h5 class="card-header bg-dark text-light text-center py-3">'.$row['modelname'].'</h5>
-
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex text-secondary">Vehicle No. : <div class="text-dark ml-2">'.$row['modelno']. '</div></li>
                             <li class="list-group-item d-flex text-secondary">Seating Capacity : <div class="text-dark ml-2">'.$row['capacity']. '</div></li>
@@ -45,13 +51,17 @@
                     //    logged in as customer
                     $date = date('Y-m-d');
                       if(isset($_SESSION['type']) && $_SESSION['type']==1){
-                          echo '  <li class="list-group-item text-secondary">Start Date <div class="pt-1"><input type="date"
-                                        class="form-control datepicker" novalidate id="date1" min="'. $date .'" required></div>
+
+                          echo '  
+                          <form>
+                          <li class="list-group-item text-secondary">Start Date <div class="pt-1"><input type="date"
+                                       name="bookdate" class="form-control datepicker" novalidate id="date1" min="'. $date .'" required></div>
                             </li>
-                            <li class="list-group-item text-secondary">Number of Days <div class="pt-1"><input type="number"
-                                        class="form-control number"  max="30"  id="numberofdays" required></div>
+                            <li class="list-group-item text-secondary">Number of Days <div class="pt-1">
+                            <input type="number" name="noofdays"  class="form-control number"  max="30"  id="numberofdays" required></div>
                             </li>
-                            <button class="btn btn-outline-success p-2 m-3" type="submit">BOOK NOW</button>';
+                            <button class="btn btn-outline-success p-2 m-3" type="submit">BOOK NOW</button>
+                            </form>';
                         } 
                         // logged in as rental agency
                         else if(isset($_SESSION['type']) && $_SESSION['type']==2){

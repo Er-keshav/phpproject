@@ -7,4 +7,10 @@ $database= "bookndrive";
 
 $conn = mysqli_connect($servername,$username,$password,$database);
 
+    //database= BooknDrive
+    //username= root
+    //password= Adminbookndrive123@
+    //server= localhost
 ?>
+
+

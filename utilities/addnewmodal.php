@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $modelname = $_POST['modelname'];
         $seats = $_POST['capacity'];
         $price = $_POST['rent'];
-        $modelnumber = $_POST['modelnumber'];
+        $modelnumber= $_POST['modelnumber'];
         $checksql = "Select * from listedcars where modelno='$modelnumber'";
         $result = mysqli_query($conn, $checksql);
         $numRows = mysqli_num_rows($result);
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            header("Location: /listed_cars.php?edit=true");
+            header("Location: /project_php/listed_cars.php?edit=true");
         }
     }
 }

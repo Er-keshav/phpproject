@@ -26,9 +26,53 @@
 
         <div class="card">
             <div class="container mt-4 ml-3 ">
-                <button type="button" class="btn btn-primary px-auto " data-toggle="modal" data-target="#AddListing">
+            <button type="button" class="btn btn-primary px-auto " data-toggle="modal" data-target="#AddListing">
                     ADD NEW CARS TO LIST </button>
                 <?php include 'utilities/addnewmodal.php'; ?>
+            </div>
+            <div class="card-body">
+                <?php include 'utilities/editmodal.php'; ?>
+
+                <?php
+                $id = $_SESSION['srno'];
+                $sql = "SELECT * FROM `listedcars` WHERE seller_id=$id ORDER BY srno DESC";
+                $result = mysqli_query($conn, $sql); ?>
+
+                <table id="datatableid" class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">MODEL NAME</th>
+                            <th scope="col">MODEL NUMBER </th>
+                            <th scope="col">CAPACITY </th>
+                            <th scope="col">RENT PER DAY </th>
+                            <th scope="col"> EDIT </th>
+                        </tr>
+                    </thead>
+                    <?php
+                    $index = 1;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <tbody>
+                        <tr>
+                            <td> <?php echo $row['srno']; ?> </td>
+                            <td> <?php echo $row['modelname']; ?> </td>
+                            <td> <?php echo $row['modelno']; ?> </td>
+                            <td> <?php echo $row['capacity']; ?> </td>
+                            <td> <?php echo $row['rent']; ?> </td>
+                            <td>
+                                <button type="button" class="btn btn-primary viewbtn px-auto"> EDIT </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    <?php
+                        $index++;      
+                    }
+
+            ?>
+                    </table>
+                </div>
             </div>
             <div class="card-body">
                 <?php include 'utilities/editmodal.php'; ?>
@@ -105,13 +149,14 @@
                     return $(this).text();
                 }).get();
 
-                $('#srno').val(data[0]?.trim());
-                $('#insertdata').val(data[0].trim());
-                $('#editmodelname').val(data[1].trim());
-                $('#editmodelnumber').val(data[2].trim());
-                $('#editseats').val(data[3].trim());
-                $('#editprice').val(data[4].trim());
-            });
+            // console.log(data);
+
+            $('#srno').val(data[0]?.trim());
+            $('#insertdata').val(data[0].trim());
+            $('#editmodelname').val(data[1].trim());
+            $('#editmodelnumber').val(data[2].trim());
+            $('#editseats').val(data[3].trim());
+            $('#editprice').val(data[4].trim());
         });
     </script>
 
