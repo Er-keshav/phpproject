@@ -36,10 +36,10 @@
                   <div class="col-md-4">';
 
                   if(isset($_SESSION['user_id'])){
-                echo '<form class="px-3 mx-1 mb-5" action="/project_php/utilities/handlebooking.php?srno='.$row['srno'].'&userid='.$_SESSION['user_id'] .'" method="post">';
+                echo '<form class="px-3 mx-1 mb-5" action="/utilities/handlebooking.php?srno='.$row['srno'].'&userid='.$_SESSION['user_id'] .'" method="post">';
                   }
                   else{
-                   echo '<form class="px-3 mx-1 mb-5" action="/project_php/utilities/handlebooking.php">';
+                   echo '<form class="px-3 mx-1 mb-5" action="/utilities/handlebooking.php">';
                   }
                 echo '
                     <div class="card md-3" style="width: 22rem;">

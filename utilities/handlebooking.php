@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $sql = "INSERT INTO `bookedcars` (`modelno`, `customerid`, `sellerid`, `dateforbooking`, `noofdays`, `datetime`) VALUES ('$modelno', '$customerid', '$sellerid', '$bookdate', '$noofdays', current_timestamp())";
 
       $result = mysqli_query($conn, $sql);
-      header("Location: /project_php/book_a_car.php?bookingconfirm=true");
+      header("Location: /book_a_car.php?bookingconfirm=true");
       exit();
 }
 ?>

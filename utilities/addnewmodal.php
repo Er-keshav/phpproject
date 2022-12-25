@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            header("Location: /project_php/listed_cars.php?edit=true");
+            header("Location: /listed_cars.php?edit=true");
         }
     }
 }
