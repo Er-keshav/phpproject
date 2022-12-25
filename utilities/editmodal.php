@@ -1,6 +1,5 @@
 <?php
 echo '
-
 <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="EditListingLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -11,19 +10,21 @@ echo '
                 <div class="modal-body">
                 
                 <form class="form-signin" action="/listed_cars.php" method="post">
-                <input type="hidden" id="editid" name="editid">
-                    <div class="form-label-group mx-4 mt-2">
-                        <input type="text" id="editmodelname" style="width: 23rem;height: 3rem;" class="form-control"
-                            name="editmodelname"  placeholder="Vehicle Model ( AUDI S Class )" required autofocus>
-                        <label for="inputmodel">Vehicle Model</label>
-                    </div>
 
-                    <div class="form-label-group mx-4 mt-2">
-                        <input type="text" id="editmodelnumber" style="width: 23rem;height: 3rem;" name="editmodelnumber"
-                            class="form-control mt-2"  placeholder="Vehicle Number ( AA00XX0000 )">
-                        <label for="inputvehicleno">Vehicle Number</label>
-                    </div>
-            
+                <input type="hidden" id="srno" name="srno">
+
+                <div class="form-label-group mx-4 mt-2">
+                    <input type="text" id="editmodelname" style="width: 23rem;height: 3rem;" class="form-control"
+                        name="editmodelname"  placeholder="Vehicle Model ( AUDI S Class )" required autofocus>
+                    <label for="inputmodel">Vehicle Model</label>
+                </div>
+
+                <div class="form-label-group mx-4 mt-2">
+                    <input type="text" id="editmodelnumber" style="width: 23rem;height: 3rem;" name="editmodelnumber"
+                        class="form-control mt-2"  placeholder="Vehicle Number ( AA00XX0000 )">
+                    <label for="inputvehicleno">Vehicle Number</label>
+                </div>
+        
                 <div class="form-label-group mx-4 mt-2">
                     <input type="text" id="editseats" style="width: 23rem;height: 3rem;" class="form-control"
                         name="editcapacity"  placeholder="Seating Capacity" required>
@@ -45,5 +46,4 @@ echo '
         </div>
     </div>
 </div>'
-?>
-
+    ?>

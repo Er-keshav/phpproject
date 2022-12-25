@@ -32,7 +32,6 @@
             </div>
             <div class="card-body">
                 <?php include 'utilities/editmodal.php'; ?>
-
                 <?php
                 $id = $_SESSION['user_id'];
                 $sql = "SELECT * FROM `listedcars` WHERE seller_id=$id ORDER BY srno DESC";
@@ -41,7 +40,7 @@
                 <table id="datatableid" class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col"> SR NO.</th>
+                            <th scope="col">ID</th>
                             <th scope="col">MODEL NAME</th>
                             <th scope="col">MODEL NUMBER </th>
                             <th scope="col">CAPACITY </th>
@@ -56,7 +55,7 @@
          ??
                     <tbody>
                         <tr>
-                            <td> <?php echo $index; ?> </td>
+                            <td> <?php echo $row['srno']; ?> </td>
                             <td> <?php echo $row['modelname']; ?> </td>
                             <td> <?php echo $row['modelno']; ?> </td>
                             <td> <?php echo $row['capacity']; ?> </td>
@@ -69,9 +68,7 @@
                     </tbody>
                     <?php
                         $index++;
-                    }
-
-                    ?>
+                    }?>
                 </table>
             </div>
         </div>
@@ -108,7 +105,7 @@
                     return $(this).text();
                 }).get();
 
-                $('#editid').val(data[0]?.trim());
+                $('#srno').val(data[0]?.trim());
                 $('#insertdata').val(data[0].trim());
                 $('#editmodelname').val(data[1].trim());
                 $('#editmodelnumber').val(data[2].trim());

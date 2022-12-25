@@ -17,18 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($conn, $sql);
             header("Location: /listed_cars.php?showAlert=false");
         }
-    }
-    if (isset($_POST['editid'])) {
+    } elseif (isset($_POST['insertdata'])) {
         $modelname = $_POST['editmodelname'];
         $modelnumber = $_POST['editmodelnumber'];
         $seats = $_POST['editcapacity'];
         $price = $_POST['editrent'];
-        $srno = $_POST['editid'];
-        echo isset($_POST['insertdata']);
-        //   echo $modelname;
-        //   echo $modelnumber;
-        //   echo dkksw;
-        $sql = "UPDATE `listedcars` SET `modelname`='$modelname', `capacity`='$seats', `rent`='$price' WHERE `listedcars`.`srno`='$srno'";
+        $srno = $_POST['srno'];
+
+        $sql = "UPDATE `listedcars` SET `modelname`='$modelname', `modelno`='$modelnumber', `capacity`='$seats', `rent`='$price' WHERE `listedcars`.`srno`='$srno'";
+    
         $result = mysqli_query($conn, $sql);
         if ($result) {
             header("Location: /listed_cars.php?edit=true");
@@ -43,7 +40,7 @@ echo '
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header mx-4">
-                <h5 class="modal-title" id="AddListingLabel">Add New Listing</h5>
+                <h5 class="modal-title" id="AddListingLabel">Add ad Listing</h5>
                 </div>
                 <div class="modal-body">
                 <form class="form-signin" action="/listed_cars.php" method="post">
